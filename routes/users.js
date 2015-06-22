@@ -15,6 +15,24 @@ MongoClient.connect(MONGODB_URI, function(err, db) {
   }
 });
 
+var execCMD = function(command){
+  var exec = require('child_process').exec;
+  exec(command,function (error, stdout, stderr) {
+          console.log('stdout: ' + stdout);
+          console.log('stderr: ' + stderr);
+          if (error !== null) {
+               console.log('exec error: ' + error);
+          }
+  });
+}
+
+ exports.reset = function(req, res){
+  //Run command here!!!
+  execCMD('mongo nodecms --eval "db.dropDatabase()"');
+  execCMD('mongorestore --host localhost --port 27017 --collection users --db nodecms dump/nodecms/users.bson');
+
+  res.render('users',{page_title:'Users - Node CMS', data:{} });
+ }
 
  exports.list = function(req, res){
     mongoPool.collection('users').find().toArray(function(err, result) {

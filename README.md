@@ -14,6 +14,10 @@ A simple cms in Node.js with mongoDB CRUD.
 
 Note: Need create a DB named 'nodecms' and a collection named 'users' in mongoDB.
 
-Or restore test data in mongoDB:
+## Data reset in Manually Safe Mod:
 
-mongorestore --host {YourMongoDBServer} --port {Port} --collection {users} --db {nodecms} dump/nodecms/users.bson
+	mongo nodecms --eval "db.dropDatabase()"
+
+	mongorestore --host {YourMongoDBServer} --port {Port} --collection users --db nodecms dump/nodecms/users.bson
+
+	(Or use 2-step-Reset button from /users)

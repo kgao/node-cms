@@ -33,6 +33,7 @@ if ('development' == app.get('env')) {
 //routes:
 app.get('/', routes.index);
 app.get('/users', users.list);
+app.post('/users', users.reset);
 app.get('/users/add', users.add);
 app.post('/users/add', users.save);
 app.get('/users/delete/:id', users.delete);

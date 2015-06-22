@@ -1,0 +1,6 @@
+mongodump --host localhost --port 27017 --collection users --db nodecms --out dump/
+connected to: localhost:27017
+2015-06-22T15:37:06.570-0400 DATABASE: nodecms	 to 	dump/nodecms
+2015-06-22T15:37:06.571-0400 	nodecms.users to dump/nodecms/users.bson
+2015-06-22T15:37:06.645-0400 		 5 documents
+2015-06-22T15:37:06.645-0400 	Metadata for nodecms.users to dump/nodecms/users.metadata.json
